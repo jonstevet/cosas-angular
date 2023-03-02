@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {product} from './product.model';
+import {product, register} from './product.model';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +8,28 @@ import {product} from './product.model';
 })
 
 export class AppComponent {
+  widthImg:number = 20;
   name:string = 'JonSteve';
   age:number = 34;
   imgurl:string = 'https://www.w3schools.com/w3images/avatar2.png';
   btn101State:boolean = true;
   names:string[] = ['Jon', 'Steve', 'John', 'Stevie', 'Johnny'];
   newName:string = '';
+
+  box = {
+    width: '100',
+    height: '100',
+    background: 'red'
+  }
+
+  register:register = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    password2: '',
+    country: ''
+  };
 
   person = {
     name: 'JonSteve',
@@ -55,5 +71,9 @@ export class AppComponent {
 
   onPressRemoveName(index: number): void {
       this.names.splice(index, 1);
+  }
+
+  onRegister(): void {
+    console.log(this.register);
   }
 }

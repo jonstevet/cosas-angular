@@ -1,3 +1,91 @@
+<h1>Basic Form</h1>
+<form (ngSubmit)="onRegister()" #myform="ngForm" action="">
+  <div class="formRegisterContainer">
+    <div class="inputform">
+      <label for="firstname">first name</label>
+      <input type="text" name="firstname" id="firstname" required #firstNameInput="ngModel" [(ngModel)]="register.firstName">
+      <p *ngIf="firstNameInput.invalid">Campo Requerido</p>
+    </div>
+    <div class="inputform">
+      <label for="lastname">last name</label>
+      <input type="text" name="lastname" id="lastname" required #lastNameInput="ngModel" [(ngModel)]="register.lastName">
+      <p *ngIf="lastNameInput.invalid">Campo Requerido</p>
+    </div>
+    <div class="inputform">
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" required #emailInput="ngModel" [(ngModel)]="register.email">
+      <p *ngIf="emailInput.invalid">Campo Requerido</p>
+    </div>
+    <div class="inputform">
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" required #passwordInput="ngModel" [(ngModel)]="register.password">
+      <p *ngIf="passwordInput.invalid">Campo Requerido</p>
+    </div>
+    <div class="inputform">
+      <label for="password2">Retype Password</label>
+      <input type="password" name="password2" id="password2" required #password2Input="ngModel" [(ngModel)]="register.password2">
+      <p *ngIf="password2Input.invalid">Campo Requerido</p>
+    </div>
+    <div class="inputform">
+      <label for="country">Country</label>
+      <select name="country" name="country" id="country" required #countryInput="ngModel" [(ngModel)]="register.country">
+        <option value="">Select Country</option>
+        <option value="Colombia">Colombia</option>
+        <option value="Peru">Peru</option>
+        <option value="Chile">Chile</option>
+      </select>
+      <p *ngIf="countryInput.invalid">Campo Requerido</p>
+    </div>
+    <div>
+      <button [disabled]="myform.invalid" type="submit">Registrarse</button>
+    </div>
+  </div>
+</form>
+
+<hr/>
+
+<h1>Dynamic ngClass & ngStyle</h1>
+<input type="text" required #nameInput6="ngModel" name="first" [(ngModel)]="person.name">
+<hr class="lineClass"
+  [ngClass]="{
+    'valid': nameInput6.valid,
+    'invalid': nameInput6.invalid
+  }"
+/>
+<div class="classStyleImageWidth">
+  <div>
+    <input type="number" [(ngModel)]="box.width">
+    <input type="number" [(ngModel)]="box.height">
+    <input type="color" [(ngModel)]="box.background">
+  </div>
+  <div>
+    <div [ngStyle]="{
+      'width.px': box.width,
+      'height.px': box.height,
+      'background-color': box.background,
+      display: 'block'
+      }">
+    </div>
+  </div>
+</div>
+<hr/>
+
+<h1>Dynamic Class & Style</h1>
+<input class="input" name="first" [class.inputError]="nameInput5.invalid" type="text" required #nameInput5="ngModel" [(ngModel)]="person.name">
+<p class="message-error" [class.invalid]="nameInput5.invalid" >Campo Requerido</p>
+<p [style.font-style]="nameInput5.invalid ? 'italic' : 'normal'" >Otro Texto con auto estilo</p>
+
+<div class="classStyleImageWidth">
+  <div>
+    <input type="text" [(ngModel)]="widthImg">
+  </div>
+  <div>
+    <img [style.width.px]="widthImg" [src]="products[0].img" alt="product">
+  </div>
+</div>
+
+<hr/>
+
 <h1>[NgSwitch]</h1>
 <input type="text" required [(ngModel)]="person.name">
 <div [ngSwitch]="person.name">
