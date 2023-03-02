@@ -1,0 +1,6 @@
+// instal angular cli
+npm i -g @angular/cli
+
+git config --global init.defaultBranch main
+
+git -m branch main
