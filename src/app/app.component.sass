@@ -1,0 +1,44 @@
+.box
+  background: #d61d1d
+  height: 100px
+  width: 200px
+  overflow: auto
+
+#delete
+  color: #ff0000
+  cursor: pointer
+
+.containerProducts
+  display: flex
+  flex-direction: column
+  align-items: center
+
+  .product
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+    .product_title
+      font-size: 20px
+      font-weight: bold
+      margin-bottom: 10px
+
+    .product_price
+      font-size: 16px
+      font-weight: bold
+      margin-bottom: 10px
+
+    .product_img
+      width: 160px
+      height: 160px
+      margin-bottom: 10px
+      border-radius: 8px
+
+
+@media screen and (min-width: 40em)
+  .containerProducts
+    display: grid
+    grid-template-columns: auto 1fr auto 1fr
+    grid-gap: 20px
+
